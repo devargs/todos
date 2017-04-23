@@ -1,0 +1,86 @@
+// Mixins
+
+@mixin shadow($horizontal: 0, $vertical: 2px, $blur: 12px, $spread: 0, $color: gray){
+	box-shadow: $horizontal $vertical $blur $spread $color;
+}
+
+body{
+	font-size: 2rem;
+	word-wrap: break-word;
+}
+
+.todo-app{
+	margin: 1rem 6rem;
+}
+
+header{	
+	margin-bottom: 1rem;
+
+	& > p{
+		font-size: 4rem;
+		text-align: center;		
+	}
+}
+
+.content-wrapper{
+	@include shadow();	
+}
+
+form{
+	
+	& > div{
+		position: relative;
+		border-bottom: thin solid gray;		
+	}
+
+	.check-box{
+		position: absolute;		
+		padding-top: 1.5rem;
+		padding-left: 2rem;
+		cursor: pointer;
+	}
+
+	input{		
+		display: inline-block;
+		width: 70%;	
+		padding: 1.5rem 0 1.5rem 5rem;
+		font-size: 24px;
+		appereance: none;
+		border: 0;
+		outline: none;			
+	}
+}
+
+.todo{
+	padding: 1rem 2rem;	
+	list-style-type: none;	
+	border-bottom: thin solid gray;
+
+	& > p{
+		display: inline;
+		margin-left: 1rem;
+		font-size: 1.5rem;
+	}
+
+	& > .todo-checkbox{
+		cursor: pointer;
+	}
+
+	& > .done-task{
+	color: gray;
+	text-decoration: line-through;
+	}
+
+	& > .completed-at{		
+		font-size: 0.75rem;
+		display: block;
+		margin-left: 3rem;
+	}
+}
+
+.remove-todo{
+	clear: both;
+	display: block;	
+	float: right;    
+    font-size: 2rem;
+}
