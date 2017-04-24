@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 export const TodoList = (props) => {
 	return(		
 		<ul>		
-			{props.todos.map( todo => <Todo key={todo.id} {...todo}/> )}
+			{props.todos.map( todo => <Todo key={todo.id} {...todo} 
+				handleToggle={props.handleToggle}
+				handleRemoveTodo={props.handleRemoveTodo} /> )}
 	    </ul>
 	);
 };

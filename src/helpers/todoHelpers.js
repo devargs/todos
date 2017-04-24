@@ -1,11 +1,8 @@
 // Helper functions for the Todos
 
 export const addTodo = (todo, todoList) =>{
-	// Don't mutate the todoLIst but create a new list
-	return todoList.concat(todo);
-
-	// An alternative would be to spread the list and add the item at the end
-	// [...todoList, item]	
+	// It's more visible to add the item to the beginning of the list
+	return [todo, ...todoList]	
 }
 
 export const generateID = () => Math.floor(Math.random() * 100000);
@@ -41,3 +38,16 @@ export const removeTodo = (id, todoList) =>{
 		...todoList.slice(removeIndex + 1)
 	];
 };
+
+// Filter the Todos based on the route(url)
+export const filterTodos = (route, todos) =>{
+	switch(route){
+		case '/completed':
+			return todos.filter(todo => todo.isDone);			
+		case '/not-done':
+			return todos.filter(todo => !todo.isDone);
+		default:
+			return todos;
+	}
+
+}

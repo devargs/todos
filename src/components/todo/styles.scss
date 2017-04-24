@@ -4,8 +4,7 @@
 	box-shadow: $horizontal $vertical $blur $spread $color;
 }
 
-body{
-	font-size: 2rem;
+body{	
 	word-wrap: break-word;
 }
 
@@ -15,8 +14,9 @@ body{
 
 header{	
 	margin-bottom: 1rem;
-
 	& > p{
+		color: darkcyan;
+		padding: 0.25rem;		
 		font-size: 4rem;
 		text-align: center;		
 	}
@@ -33,37 +33,60 @@ form{
 		border-bottom: thin solid gray;		
 	}
 
-	.check-box{
-		position: absolute;		
-		padding-top: 1.5rem;
-		padding-left: 2rem;
-		cursor: pointer;
-	}
-
 	input{		
 		display: inline-block;
 		width: 70%;	
 		padding: 1.5rem 0 1.5rem 5rem;
-		font-size: 24px;
-		appereance: none;
-		border: 0;
+		font-size: 1.5rem;		
+		border: 0;		
 		outline: none;			
 	}
 }
 
-.todo{
+.todo-filters{
+	display: flex;
+	justify-content: center;
+	padding: 0.5rem 0;	
+	border-bottom: thin solid gray;	
+
+	a{
+		color: darkcyan;
+		text-decoration: none;
+		border: thin solid darkcyan;
+		border-radius: 0.5rem;
+		font-weight: bold;
+		padding: 0.5rem;
+		margin-right: 3rem;
+		transition: all 0.25s;
+	}
+	a:hover{
+		@include shadow($blur: 4px);
+		transition: all 0.25s;
+	}
+
+	a.active{
+		background-color: darkcyan;
+		color: white;
+	}
+}
+
+.todo{	
 	padding: 1rem 2rem;	
 	list-style-type: none;	
 	border-bottom: thin solid gray;
 
 	& > p{
+		color: darkcyan;
+		font-weight: bold;
 		display: inline;
-		margin-left: 1rem;
-		font-size: 1.5rem;
-	}
+		margin-left: 1.5rem;
+		font-size: 1.25rem;
+		vertical-align: middle;
+	}	
 
 	& > .todo-checkbox{
 		cursor: pointer;
+		font-size: 1.5rem;
 	}
 
 	& > .done-task{
@@ -75,12 +98,15 @@ form{
 		font-size: 0.75rem;
 		display: block;
 		margin-left: 3rem;
+		color: gray;
 	}
 }
 
 .remove-todo{
+	color: black;
+	cursor: pointer;
 	clear: both;
 	display: block;	
 	float: right;    
-    font-size: 2rem;
+    font-size: 1.5rem;
 }

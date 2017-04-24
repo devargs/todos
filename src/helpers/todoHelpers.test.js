@@ -1,6 +1,6 @@
 // Unit Tests for the Todos helper functions
 
-import {addTodo, findByID, toggleTodo, updateTodo, removeTodo} from './todoHelpers';
+import {addTodo, findByID, toggleTodo, updateTodo, removeTodo, filterTodos, toggleAll} from './todoHelpers';
 
 
 test('Should add a Todo to the list', () =>{
@@ -33,6 +33,7 @@ test('Should add a Todo to the list', () =>{
 
     // The expected Todos list
     const expectedTodosList = [
+      {id: 3, text: "Get cheetos", isDone: false, created_at: date},
     	{
           "id": 0,
           "text": "Get milk",
@@ -51,8 +52,7 @@ test('Should add a Todo to the list', () =>{
           "created_at": "2015-08-08T08:40:51.620Z",
           "completed_at": "2015-08-08T08:40:51.620Z",
           "isDone": true
-        },
-        {id: 3, text: "Get cheetos", isDone: false, created_at: date}
+        }        
     ];
     // Add the Todo
     const result = addTodo(newTodo, todos);
@@ -237,5 +237,87 @@ test('Should remove the Todo but without mutating the array.', () =>{
 
 	// Make sure it is not a reference to the same todos array
 	expect(result).not.toBe(todos);
+
+});
+
+
+test('Should filter the Todos based on the route(url)', () =>{
+  const todos = [
+      {
+        "id": 0,
+        "text": "Get milk",
+        "created_at": "2015-08-05T08:40:51.620Z",
+        "completed_at": "2015-08-06T08:40:51.620Z",
+        "isDone": true
+      },
+      {
+        "id": 1,
+        "text": "Get eggs",
+        "created_at": "2015-08-06T08:40:51.620Z"          
+      },
+      {
+        "id": 2,
+        "text": "Get bread",
+        "created_at": "2015-08-08T08:40:51.620Z",
+        "completed_at": "2015-08-08T08:40:51.620Z",
+        "isDone": true
+      }
+  ];
+
+  const completedTodos = [
+      {
+        "id": 0,
+        "text": "Get milk",
+        "created_at": "2015-08-05T08:40:51.620Z",
+        "completed_at": "2015-08-06T08:40:51.620Z",
+        "isDone": true
+      },
+      {
+        "id": 2,
+        "text": "Get bread",
+        "created_at": "2015-08-08T08:40:51.620Z",
+        "completed_at": "2015-08-08T08:40:51.620Z",
+        "isDone": true
+      }
+  ];
+
+  const notDoneTodos = [
+      {
+        "id": 1,
+        "text": "Get eggs",
+        "created_at": "2015-08-06T08:40:51.620Z"          
+      }
+  ];
+
+  const allTodos = [
+      {
+        "id": 0,
+        "text": "Get milk",
+        "created_at": "2015-08-05T08:40:51.620Z",
+        "completed_at": "2015-08-06T08:40:51.620Z",
+        "isDone": true
+      },
+      {
+        "id": 1,
+        "text": "Get eggs",
+        "created_at": "2015-08-06T08:40:51.620Z"          
+      },
+      {
+        "id": 2,
+        "text": "Get bread",
+        "created_at": "2015-08-08T08:40:51.620Z",
+        "completed_at": "2015-08-08T08:40:51.620Z",
+        "isDone": true
+      }
+  ];
+
+  const completed = filterTodos('/completed', todos);
+  expect(completed).toEqual(completedTodos);
+
+  const notDone = filterTodos('/not-done', todos);
+  expect(notDone).toEqual(notDoneTodos);
+
+  const all = filterTodos('/', todos);
+  expect(all).toEqual(allTodos);  
 
 });

@@ -4,16 +4,20 @@ import FaCheckSquare from 'react-icons/lib/fa/check-square';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
 import PropTypes from 'prop-types';
 
-export const Todo = (todo) => {
+export const Todo = (todo) => {	
+	const handleToggle = todo.handleToggle.bind(null, todo.id);
+	const handleRemove = todo.handleRemoveTodo.bind(null, todo.id);
+
 	return (
 		<li className="todo">
-			{todo.isDone? <FaCheckSquare className="todo-checkbox" /> : <FaSquareO className="todo-checkbox" /> }
+			{todo.isDone? 
+				<FaCheckSquare onClick={handleToggle} className="todo-checkbox" /> : <FaSquareO onClick={handleToggle} className="todo-checkbox" /> }
 			<p className={todo.isDone? "done-task" : ""}>
 				{todo.text} 				
-				<span className="remove-todo"><FaTrashO /></span>
+				<span className="remove-todo" onClick={handleRemove}><FaTrashO /></span>
 			</p>
 			
-			{ todo.completed_at && <p className="completed-at">Done: {new Date(todo.completed_at).toDateString()}</p>}
+			{ todo.completed_at && <p className="completed-at">Completed: {new Date(todo.completed_at).toDateString()}</p>}
 		</li>
 	)
 };

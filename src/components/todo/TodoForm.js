@@ -1,14 +1,11 @@
 import React from 'react';
-import FaSquareO from 'react-icons/lib/fa/square-o';
-import CheckSquareO from 'react-icons/lib/fa/check-square-o';
 import PropTypes from 'prop-types';
 
 
 export const TodoForm = (props) =>{
 	return (			
 		<form onSubmit={props.handleSubmit}>
-			<div>
-				{false? <FaSquareO className="check-box" /> : <CheckSquareO className="check-box" />}
+			<div>				
 				<input type="text" 
 				onChange={props.handleInputChange} 
 				placeholder="Enter things to do..."
