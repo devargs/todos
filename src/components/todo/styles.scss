@@ -1,112 +1,145 @@
-// Mixins
-
-@mixin shadow($horizontal: 0, $vertical: 2px, $blur: 12px, $spread: 0, $color: gray){
-	box-shadow: $horizontal $vertical $blur $spread $color;
+// Reset margins and paddings
+* {
+  margin: 0;
+  padding: 0;
 }
 
-body{	
-	word-wrap: break-word;
+body {
+  font-family: sans-serif;
 }
 
-.todo-app{
-	margin: 1rem 6rem;
+// Shadow to help components stand out
+@mixin shadow($horizontal: 0, $vertical: 2px, $blur: 12px, $spread: 0, $color: gray) {
+  box-shadow: $horizontal $vertical $blur $spread $color;
 }
 
-header{	
-	margin-bottom: 1rem;
-	& > p{
-		color: darkcyan;
-		padding: 0.25rem;		
-		font-size: 4rem;
-		text-align: center;		
-	}
+.todo-app {
+  margin: 1rem 6rem;
 }
 
-.content-wrapper{
-	@include shadow();	
+header {
+  margin-bottom: 1rem;
+  & > p {
+    color: darkcyan;
+    padding: 0.25rem;
+    font-size: 3rem;
+    text-align: center;
+  }
 }
 
-form{
-	
-	& > div{
-		position: relative;
-		border-bottom: thin solid gray;		
-	}
-
-	input{		
-		display: inline-block;
-		width: 70%;	
-		padding: 1.5rem 0 1.5rem 5rem;
-		font-size: 1.5rem;		
-		border: 0;		
-		outline: none;			
-	}
+.content-wrapper {
+  @include shadow();
 }
 
-.todo-filters{
-	display: flex;
-	justify-content: center;
-	padding: 0.5rem 0;	
-	border-bottom: thin solid gray;	
+form {
 
-	a{
-		color: darkcyan;
-		text-decoration: none;
-		border: thin solid darkcyan;
-		border-radius: 0.5rem;
-		font-weight: bold;
-		padding: 0.5rem;
-		margin-right: 3rem;
-		transition: all 0.25s;
-	}
-	a:hover{
-		@include shadow($blur: 4px);
-		transition: all 0.25s;
-	}
+  & > div {
+    position: relative;
+    border-bottom: thin solid gray;
+  }
 
-	a.active{
-		background-color: darkcyan;
-		color: white;
-	}
-}
-
-.todo{	
-	padding: 1rem 2rem;	
-	list-style-type: none;	
-	border-bottom: thin solid gray;
-
-	& > p{
-		color: darkcyan;
-		font-weight: bold;
-		display: inline;
-		margin-left: 1.5rem;
-		font-size: 1.25rem;
-		vertical-align: middle;
-	}	
-
-	& > .todo-checkbox{
-		cursor: pointer;
-		font-size: 1.5rem;
-	}
-
-	& > .done-task{
-	color: gray;
-	text-decoration: line-through;
-	}
-
-	& > .completed-at{		
-		font-size: 0.75rem;
-		display: block;
-		margin-left: 3rem;
-		color: gray;
-	}
-}
-
-.remove-todo{
-	color: black;
-	cursor: pointer;
-	clear: both;
-	display: block;	
-	float: right;    
+  input {
+    display: inline-block;
+    width: 70%;
+    padding: 1.5rem 0 1.5rem 5rem;
     font-size: 1.5rem;
+    border: 0;
+    outline: none;
+  }
+}
+
+.todo-filters {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+  border-bottom: thin solid gray;
+
+  a {
+    color: darkcyan;
+    text-decoration: none;
+    border: thin solid darkcyan;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    transition: all 0.25s;
+  }
+
+  a:hover {
+    @include shadow($blur: 4px);
+    transition: all 0.25s;
+  }
+
+  a.active {
+    background-color: darkcyan;
+    color: white;
+  }
+}
+
+.todo {
+  padding: 1rem 2rem;
+  list-style-type: none;
+  border-bottom: thin solid gray;
+
+  & > p {
+    color: darkcyan;
+    font-weight: bold;
+    display: inline;
+    margin-left: 1.5rem;
+    font-size: 1.25rem;
+    vertical-align: middle;
+  }
+
+  & > .todo-checkbox {
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+
+  & > .done-task {
+    color: gray;
+    text-decoration: line-through;
+  }
+
+  & > .completed-at {
+    font-size: 0.75rem;
+    display: block;
+    margin-left: 3rem;
+    color: gray;
+  }
+}
+
+.remove-todo {
+  color: black;
+  cursor: pointer;
+  clear: both;
+  display: block;
+  float: right;
+  font-size: 1.5rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+
+  span {
+    color: darkcyan;
+    cursor: pointer;
+    text-decoration: none;
+    border: thin solid darkcyan;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    transition: all 0.25s;
+  }
+
+  span:hover {
+    @include shadow($blur: 4px);
+    transition: all 0.25s;
+  }
+
+  span.active {
+    background-color: darkcyan;
+    color: white;
+  }
 }

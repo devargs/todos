@@ -16,5 +16,7 @@ export const TodoList = (props) => {
 // to include the prop types, in order to use the component correctly.
 // This is also good documentation
 TodoList.propTypes = {
-	todos: PropTypes.array.isRequired
+	todos: PropTypes.array.isRequired,
+	handleToggle: PropTypes.func.isRequired,
+	handleRemoveTodo: PropTypes.func.isRequired
 };

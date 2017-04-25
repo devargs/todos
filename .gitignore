@@ -9,6 +9,9 @@
 # css, since using scss
 /src/**/*.css
 
+# IDE project files
+/.idea
+
 # production
 /build
 
@@ -18,5 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-src/components/todo/styles.css

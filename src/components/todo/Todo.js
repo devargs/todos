@@ -5,6 +5,7 @@ import FaTrashO from 'react-icons/lib/fa/trash-o';
 import PropTypes from 'prop-types';
 
 export const Todo = (todo) => {	
+	// Create partial functions to pass the todo.id as first parameter
 	const handleToggle = todo.handleToggle.bind(null, todo.id);
 	const handleRemove = todo.handleRemoveTodo.bind(null, todo.id);
 
@@ -28,5 +29,6 @@ export const Todo = (todo) => {
 Todo.propTypes = {
 	isDone: PropTypes.bool,
 	text: PropTypes.string.isRequired,
-	id: PropTypes.number.isRequired
+	id: PropTypes.number.isRequired,
+	completed_at: PropTypes.string
 };

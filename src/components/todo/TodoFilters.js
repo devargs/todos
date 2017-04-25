@@ -18,5 +18,5 @@ export class TodoFilters extends Component{
 // This is also good documentation
 TodoFilters.propTypes = {
 	location: PropTypes.string.isRequired,
-	handleFilterClick: PropTypes.func	
+	handleFilterClick: PropTypes.func.isRequired	
 };

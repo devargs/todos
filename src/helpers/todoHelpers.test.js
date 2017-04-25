@@ -1,8 +1,8 @@
 // Unit Tests for the Todos helper functions
 
-import {addTodo, findByID, toggleTodo, updateTodo, removeTodo, filterTodos, toggleAll} from './todoHelpers';
+import {addTodo, findByID, toggleTodo, updateTodo, removeTodo, filterTodos} from './todoHelpers';
 
-
+// Test: addTodo
 test('Should add a Todo to the list', () =>{
 	// The initial list of Todos
 	const todos = [
@@ -54,14 +54,16 @@ test('Should add a Todo to the list', () =>{
           "isDone": true
         }        
     ];
+
     // Add the Todo
     const result = addTodo(newTodo, todos);
 
     // Expect the new Todo to be added without mutating the initial 'todo' list
-    expect(result).toEqual(expectedTodosList)
-    expect(result).not.toBe(expectedTodosList)
+    expect(result).toEqual(expectedTodosList);
+    expect(result).not.toBe(expectedTodosList);
 });
 
+// Test: findByID
 test('Should find the Todo by ID', () =>{
 	const todos = [
 		{
@@ -98,7 +100,8 @@ test('Should find the Todo by ID', () =>{
     expect(result).toEqual(expectedTodo);
 });
 
-test('Toggle Todo should toogle the "isDone" flag and have "completed_at" as null.', () =>{
+// Test: toggleTodo
+test('Toggle Todo should toggle the "isDone" flag.', () =>{
 	const date = new Date().toISOString();
 
 	 const todo = {
@@ -125,6 +128,7 @@ test('Toggle Todo should toogle the "isDone" flag and have "completed_at" as nul
 	expect(result).not.toBe(todo);
 });
 
+// Test: updateTodo
 test('Should update the Todo by ID', () =>{
 	const todos = [
 		{
@@ -190,7 +194,7 @@ test('Should update the Todo by ID', () =>{
     expect(result).not.toBe(expectedTodoList);
 });
 
-
+// Test: removeTodo
 test('Should remove the Todo but without mutating the array.', () =>{
 	const todos = [
 		{
@@ -240,7 +244,7 @@ test('Should remove the Todo but without mutating the array.', () =>{
 
 });
 
-
+// Test: filterTodos
 test('Should filter the Todos based on the route(url)', () =>{
   const todos = [
       {

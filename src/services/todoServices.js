@@ -1,4 +1,7 @@
-const url = 'http://localhost:3001/todos';
+// From the API at http://docs.todoapp10.apiary.io/#reference/0/get-list-of-to-do-items
+// Using json-server to locally save the Todos
+
+const url = 'http://localhost:3001/to-do';
 
 export const getTodos = () =>{
 	return fetch(url).then( (respoonse) => respoonse.json());

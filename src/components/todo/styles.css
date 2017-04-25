@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: sans-serif; }
+
+.todo-app {
+  margin: 1rem 6rem; }
+
+header {
+  margin-bottom: 1rem; }
+
+header > p {
+  color: darkcyan;
+  padding: 0.25rem;
+  font-size: 3rem;
+  text-align: center; }
+
+.content-wrapper {
+  box-shadow: 0 2px 12px 0 gray; }
+
+form > div {
+  position: relative;
+  border-bottom: thin solid gray; }
+
+form input {
+  display: inline-block;
+  width: 70%;
+  padding: 1.5rem 0 1.5rem 5rem;
+  font-size: 1.5rem;
+  border: 0;
+  outline: none; }
+
+.todo-filters {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+  border-bottom: thin solid gray; }
+
+.todo-filters a {
+  color: darkcyan;
+  text-decoration: none;
+  border: thin solid darkcyan;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  transition: all 0.25s; }
+
+.todo-filters a:hover {
+  box-shadow: 0 2px 4px 0 gray;
+  transition: all 0.25s; }
+
+.todo-filters a.active {
+  background-color: darkcyan;
+  color: white; }
+
+.todo {
+  padding: 1rem 2rem;
+  list-style-type: none;
+  border-bottom: thin solid gray; }
+
+.todo > p {
+  color: darkcyan;
+  font-weight: bold;
+  display: inline;
+  margin-left: 1.5rem;
+  font-size: 1.25rem;
+  vertical-align: middle; }
+
+.todo > .todo-checkbox {
+  cursor: pointer;
+  font-size: 1.5rem; }
+
+.todo > .done-task {
+  color: gray;
+  text-decoration: line-through; }
+
+.todo > .completed-at {
+  font-size: 0.75rem;
+  display: block;
+  margin-left: 3rem;
+  color: gray; }
+
+.remove-todo {
+  color: black;
+  cursor: pointer;
+  clear: both;
+  display: block;
+  float: right;
+  font-size: 1.5rem; }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0; }
+
+.pagination span {
+  color: darkcyan;
+  cursor: pointer;
+  text-decoration: none;
+  border: thin solid darkcyan;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-right: 1rem;
+  transition: all 0.25s; }
+
+.pagination span:hover {
+  box-shadow: 0 2px 4px 0 gray;
+  transition: all 0.25s; }
+
+.pagination span.active {
+  background-color: darkcyan;
+  color: white; }

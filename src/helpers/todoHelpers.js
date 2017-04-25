@@ -1,14 +1,34 @@
 // Helper functions for the Todos
 
+/**
+ * Adds a Todo to a given todoList without mutating the list
+ * @param todo{object}
+ * @param todoList{array}
+ * @returns {array} - non mutated array of Todos
+ */
 export const addTodo = (todo, todoList) =>{
 	// It's more visible to add the item to the beginning of the list
 	return [todo, ...todoList]	
 }
 
+/**
+ * Generates a random ID for the Todo
+ */
 export const generateID = () => Math.floor(Math.random() * 100000);
 
+/**
+ * Finds the Todo by a given ID
+ * @param id{number}
+ * @param todos{array}
+ * @returns {object} - The found Todo otherwise undefined
+ */
 export const findByID = (id, todos) => todos.find(todo => todo.id === id);
 
+/**
+ * Toggles the Todo's isDone flag. Updates the completed date if needed
+ * @param todo {object}
+ * @returns {{isDone: boolean, completed_at: string}}
+ */
 export const toggleTodo = (todo) =>{
 	// Spread all the properties of the todo and update only what's needed
 	return {...todo, 
@@ -17,6 +37,12 @@ export const toggleTodo = (todo) =>{
 	}
 };
 
+/**
+ * Updates the Todo without mutating the given Todo list.
+ * @param updatedTodo
+ * @param todoList
+ * @returns {array} - A new array that includes the updated Todo
+ */
 export const updateTodo = (updatedTodo, todoList) =>{	
 	const updatedIndex = todoList.findIndex(todo => todo.id === updatedTodo.id);
 
@@ -30,6 +56,12 @@ export const updateTodo = (updatedTodo, todoList) =>{
 
 };
 
+/**
+ * Removes the Todo from the list
+ * @param id
+ * @param todoList
+ * @returns {array} - A new array without the Todo included
+ */
 export const removeTodo = (id, todoList) =>{
 	const removeIndex = todoList.findIndex(todo => todo.id === id);
 
@@ -39,7 +71,12 @@ export const removeTodo = (id, todoList) =>{
 	];
 };
 
-// Filter the Todos based on the route(url)
+/**
+ * Filter the Todos based on the route(url)
+ * @param route
+ * @param todos
+ * @returns {*}
+ */
 export const filterTodos = (route, todos) =>{
 	switch(route){
 		case '/completed':
